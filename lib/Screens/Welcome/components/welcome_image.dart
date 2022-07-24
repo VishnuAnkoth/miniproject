@@ -12,14 +12,17 @@ class WelcomeImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(
-          "WELCOME TO EDU",
-          style: TextStyle(fontWeight: FontWeight.bold),
+        const Text(
+          "Let's Talk",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 40.0,
+          ),
         ),
-        SizedBox(height: defaultPadding * 2),
+        const SizedBox(height: defaultPadding),
         Row(
           children: [
-            Spacer(),
+            const Spacer(),
             Expanded(
               flex: 8,
               child: SvgPicture.asset(
@@ -29,7 +32,7 @@ class WelcomeImage extends StatelessWidget {
             Spacer(),
           ],
         ),
-        SizedBox(height: defaultPadding * 2),
+        const SizedBox(height: defaultPadding * 2),
       ],
     );
   }

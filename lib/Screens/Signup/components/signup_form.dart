@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
-
 import '../../../components/already_have_an_account_acheck.dart';
 import '../../../constants.dart';
 import '../../Login/login_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class SignUpForm extends StatelessWidget {
+class SignUpForm extends StatefulWidget {
   const SignUpForm({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<SignUpForm> createState() => _SignUpFormState();
+}
+
+class _SignUpFormState extends State<SignUpForm> {
+  final _auth = FirebaseAuth.instance;
+  late String email;
+  late String password;
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +28,13 @@ class SignUpForm extends StatelessWidget {
             textInputAction: TextInputAction.next,
             cursorColor: kPrimaryColor,
             onSaved: (email) {},
-            decoration: InputDecoration(
+            onChanged: (value) {
+              email = value;
+            },
+            decoration: const InputDecoration(
               hintText: "Your email",
               prefixIcon: Padding(
-                padding: const EdgeInsets.all(defaultPadding),
+                padding: EdgeInsets.all(defaultPadding),
                 child: Icon(Icons.person),
               ),
             ),
@@ -33,10 +45,13 @@ class SignUpForm extends StatelessWidget {
               textInputAction: TextInputAction.done,
               obscureText: true,
               cursorColor: kPrimaryColor,
-              decoration: InputDecoration(
+              onChanged: (value) {
+                password = value;
+              },
+              decoration: const InputDecoration(
                 hintText: "Your password",
                 prefixIcon: Padding(
-                  padding: const EdgeInsets.all(defaultPadding),
+                  padding: EdgeInsets.all(defaultPadding),
                   child: Icon(Icons.lock),
                 ),
               ),
@@ -44,7 +59,20 @@ class SignUpForm extends StatelessWidget {
           ),
           const SizedBox(height: defaultPadding / 2),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () async {
+              try {
+                final newUser = await _auth.createUserWithEmailAndPassword(
+                    email: email, password: password);
+                if (newUser != null) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScreen()));
+                }
+              } catch (e) {
+                print(e);
+              }
+            },
             child: Text("Sign Up".toUpperCase()),
           ),
           const SizedBox(height: defaultPadding),
@@ -55,7 +83,7 @@ class SignUpForm extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return LoginScreen();
+                    return const LoginScreen();
                   },
                 ),
               );

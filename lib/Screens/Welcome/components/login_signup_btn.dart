@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import '../../Login/login_screen.dart';
 import '../../Signup/signup_screen.dart';
+import '../../Signup/fbase_plugin.dart';
+import '../../Login/fb_plugin_login.dart';
 
 class LoginAndSignupBtn extends StatelessWidget {
   const LoginAndSignupBtn({
@@ -21,7 +23,7 @@ class LoginAndSignupBtn extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return LoginScreen();
+                    return AppLogin();
                   },
                 ),
               );
@@ -38,7 +40,8 @@ class LoginAndSignupBtn extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) {
-                  return SignUpScreen();
+                  // return const SignUpScreen();
+                  return App();
                 },
               ),
             );
@@ -47,7 +50,7 @@ class LoginAndSignupBtn extends StatelessWidget {
               primary: kPrimaryLightColor, elevation: 0),
           child: Text(
             "Sign Up".toUpperCase(),
-            style: TextStyle(color: Colors.black),
+            style: const TextStyle(color: Colors.black),
           ),
         ),
       ],
