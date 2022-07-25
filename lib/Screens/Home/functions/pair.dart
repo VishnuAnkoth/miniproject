@@ -6,13 +6,13 @@ class Pair extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: const Color(0xFFC9EAFD),
+      backgroundColor: const Color(0xFFFFFFFF),
       body: Center(
         child: Text(
           'Pair',
           style: TextStyle(
             fontSize: 60,
-            color: Colors.white,
+            color: Colors.black45,
           ),
         ),
       ),

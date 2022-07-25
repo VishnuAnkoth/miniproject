@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/Screens/Home/functions/blog.dart';
+
+
+import 'package:flutter_auth/Screens/Home/functions/profile_page.dart';
 import 'package:flutter_auth/Screens/Home/functions/chat.dart';
 import 'package:flutter_auth/Screens/Home/functions/homepage.dart';
 import 'package:flutter_auth/Screens/Home/functions/pair.dart';
@@ -18,9 +20,9 @@ class _MyHomePageState extends State<MyHomePage> {
   int index = 0;
   final screens = [
     HomePage(),
-    Chat(),
     Pair(),
-    Blog(),
+    Chat(),
+    ProfilePage(),
     Settings(),
   ];
   final items = [
@@ -30,6 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
     const Icon(
       Icons.chat,
+
       size: 30,
     ),
     const Icon(
@@ -37,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
       size: 30,
     ),
     const Icon(
-      Icons.note_add,
+      Icons.person,
       size: 30,
     ),
     const Icon(
@@ -69,10 +72,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFC9EAFD),
+      backgroundColor: const Color(0x00ffffff),
       body: screens[index],
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: const Color(0xFFC9EAFD),
+        backgroundColor: const Color(0x00cce1e1),
         height: 60,
         items: items,
         index: index,

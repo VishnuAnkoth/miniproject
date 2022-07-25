@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../components/already_have_an_account_acheck.dart';
-import '../../../constants.dart';
+import '../../Home/functions/constants.dart';
 import '../../Signup/signup_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_auth/Screens/Home/homescreen.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth/constants.dart';
+import 'package:flutter_auth/Screens/Home/functions/constants.dart';
 import 'package:flutter_auth/responsive.dart';
 import '../../components/background.dart';
 import 'components/sign_up_top_image.dart';
