@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 import 'package:flutter_auth/Screens/Home/functions/profile_page.dart';
 import 'package:flutter_auth/Screens/Home/functions/chat.dart';
 import 'package:flutter_auth/Screens/Home/functions/homepage.dart';
@@ -21,7 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final screens = [
     HomePage(),
     Pair(),
-    Chat(),
+    ChatScreen(),
     ProfilePage(),
     Settings(),
   ];
@@ -32,7 +31,6 @@ class _MyHomePageState extends State<MyHomePage> {
     ),
     const Icon(
       Icons.chat,
-
       size: 30,
     ),
     const Icon(
